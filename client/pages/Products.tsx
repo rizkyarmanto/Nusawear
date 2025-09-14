@@ -6,10 +6,17 @@ export default function ProductsPage() {
   const [q, setQ] = useState("");
   const [color, setColor] = useState("Semua");
 
-  const colors = useMemo(() => Array.from(new Set(products.flatMap((p) => p.colors))), []);
+  const colors = useMemo(
+    () => Array.from(new Set(products.flatMap((p) => p.colors))),
+    [],
+  );
   const filtered = useMemo(() => {
     return products.filter((p) => {
-      const matchQ = q ? (p.name + " " + (p.subtitle ?? "")).toLowerCase().includes(q.toLowerCase()) : true;
+      const matchQ = q
+        ? (p.name + " " + (p.subtitle ?? ""))
+            .toLowerCase()
+            .includes(q.toLowerCase())
+        : true;
       const matchColor = color === "Semua" ? true : p.colors.includes(color);
       return matchQ && matchColor;
     });

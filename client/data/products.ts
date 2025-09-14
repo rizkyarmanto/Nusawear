@@ -11,7 +11,7 @@ export const products: Product[] = [
     images: [
       "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1600&auto=format&fit=crop",
     ],
     colors: ["Hitam", "Putih", "Olive"],
     sizes: ["S", "M", "L", "XL"],
@@ -22,16 +22,16 @@ export const products: Product[] = [
       "Enzyme + bio-wash: halus dan minim susut",
       "Jahitan rantai (chain-stitch) di bahu",
       "Rib collar 1.5cm yang rapat",
-      "Pre-shrunk: bentuk tetap setelah dicuci"
+      "Pre-shrunk: bentuk tetap setelah dicuci",
     ],
     benefits: [
       "Nyaman dipakai seharian di iklim tropis",
       "Siluet oversized yang flattering untuk semua bentuk badan",
       "Tahan lama dan tidak mudah melar",
-      "Warna deep-dye yang tidak mudah pudar"
+      "Warna deep-dye yang tidak mudah pudar",
     ],
     materials: ["100% cotton combed 24s", "Rib: cotton + elastane"],
-    care: ["Cuci terbalik", "Gunakan air dingin", "Jemur di tempat teduh"]
+    care: ["Cuci terbalik", "Gunakan air dingin", "Jemur di tempat teduh"],
   },
   {
     id: "hoodie-semaya",
@@ -41,7 +41,7 @@ export const products: Product[] = [
     price: 459000,
     images: [
       "https://images.unsplash.com/photo-1618933980858-cf73c3f2d3d7?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520975922322-48f4b5b6c6b4?q=80&w=1600&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1520975922322-48f4b5b6c6b4?q=80&w=1600&auto=format&fit=crop",
     ],
     colors: ["Charcoal", "Cream"],
     sizes: ["S", "M", "L", "XL"],
@@ -51,13 +51,13 @@ export const products: Product[] = [
       "Fleece 330GSM, brushed inside",
       "Drawcord flat matte-metal aglets",
       "Kantong kangaroo tersembunyi",
-      "Rib cuff dan hem elastis"
+      "Rib cuff dan hem elastis",
     ],
     benefits: [
       "Hangat tanpa gerah",
       "Look clean cocok casual hingga smart-casual",
-      "Konstruksi kuat untuk pemakaian harian"
-    ]
+      "Konstruksi kuat untuk pemakaian harian",
+    ],
   },
   {
     id: "shirt-bali",
@@ -67,7 +67,7 @@ export const products: Product[] = [
     price: 389000,
     images: [
       "https://images.unsplash.com/photo-1520975693410-001d1eacd8b8?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop"
+      "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop",
     ],
     colors: ["Natural", "Navy"],
     sizes: ["S", "M", "L", "XL"],
@@ -77,14 +77,14 @@ export const products: Product[] = [
       "Linen blend breathable",
       "Kancing resin premium",
       "Hem lurus dengan slit samping",
-      "Kerah camp collar"
+      "Kerah camp collar",
     ],
     benefits: [
       "Tetap sejuk di siang terik",
       "Mudah dipadu-padankan",
-      "Style santai nan rapi"
-    ]
-  }
+      "Style santai nan rapi",
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string) {

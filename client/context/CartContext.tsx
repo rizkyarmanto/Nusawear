@@ -7,9 +7,15 @@ type CartContextType = {
   items: CartItem[];
   count: number;
   subtotal: number;
-  add: (product: Product, opts: { color: string; size: string; quantity?: number }) => void;
+  add: (
+    product: Product,
+    opts: { color: string; size: string; quantity?: number },
+  ) => void;
   remove: (key: { id: string; color: string; size: string }) => void;
-  updateQty: (key: { id: string; color: string; size: string }, quantity: number) => void;
+  updateQty: (
+    key: { id: string; color: string; size: string },
+    quantity: number,
+  ) => void;
   clear: () => void;
 };
 
@@ -34,11 +40,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const add: CartContextType["add"] = (product, opts) => {
     setItems((prev) => {
       const existing = prev.find(
-        (i) => i.id === product.id && i.color === opts.color && i.size === opts.size,
+        (i) =>
+          i.id === product.id && i.color === opts.color && i.size === opts.size,
       );
       if (existing) {
         return prev.map((i) =>
-          i === existing ? { ...i, quantity: i.quantity + (opts.quantity ?? 1) } : i,
+          i === existing
+            ? { ...i, quantity: i.quantity + (opts.quantity ?? 1) }
+            : i,
         );
       }
       const item: CartItem = {
@@ -56,21 +65,36 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   const remove: CartContextType["remove"] = (key) => {
-    setItems((prev) => prev.filter((i) => !(i.id === key.id && i.color === key.color && i.size === key.size)));
+    setItems((prev) =>
+      prev.filter(
+        (i) =>
+          !(i.id === key.id && i.color === key.color && i.size === key.size),
+      ),
+    );
   };
 
   const updateQty: CartContextType["updateQty"] = (key, quantity) => {
     setItems((prev) =>
       prev
-        .map((i) => (i.id === key.id && i.color === key.color && i.size === key.size ? { ...i, quantity } : i))
+        .map((i) =>
+          i.id === key.id && i.color === key.color && i.size === key.size
+            ? { ...i, quantity }
+            : i,
+        )
         .filter((i) => i.quantity > 0),
     );
   };
 
   const clear = () => setItems([]);
 
-  const subtotal = useMemo(() => items.reduce((sum, i) => sum + i.price * i.quantity, 0), [items]);
-  const count = useMemo(() => items.reduce((sum, i) => sum + i.quantity, 0), [items]);
+  const subtotal = useMemo(
+    () => items.reduce((sum, i) => sum + i.price * i.quantity, 0),
+    [items],
+  );
+  const count = useMemo(
+    () => items.reduce((sum, i) => sum + i.quantity, 0),
+    [items],
+  );
 
   const value = useMemo(
     () => ({ items, add, remove, updateQty, clear, subtotal, count }),

@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import type { Product } from "@/types";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const discount = product.originalPrice && product.originalPrice > product.price;
+  const discount =
+    product.originalPrice && product.originalPrice > product.price;
   return (
     <Link to={`/product/${product.slug}`} className="group block">
       <div className="aspect-[4/5] overflow-hidden rounded-xl border bg-card">
@@ -17,17 +18,25 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="mt-3 flex items-center justify-between">
         <div>
           <div className="font-medium">{product.name}</div>
-          <div className="text-sm text-muted-foreground">{product.subtitle}</div>
+          <div className="text-sm text-muted-foreground">
+            {product.subtitle}
+          </div>
         </div>
         <div className="text-right">
-          <div className="font-semibold">Rp {product.price.toLocaleString("id-ID")}</div>
+          <div className="font-semibold">
+            Rp {product.price.toLocaleString("id-ID")}
+          </div>
           {discount && (
-            <div className="text-xs text-muted-foreground line-through">Rp {product.originalPrice!.toLocaleString("id-ID")}</div>
+            <div className="text-xs text-muted-foreground line-through">
+              Rp {product.originalPrice!.toLocaleString("id-ID")}
+            </div>
           )}
         </div>
       </div>
       <div className="mt-3">
-        <Button className="w-full" variant="secondary">Lihat Detail</Button>
+        <Button className="w-full" variant="secondary">
+          Lihat Detail
+        </Button>
       </div>
     </Link>
   );

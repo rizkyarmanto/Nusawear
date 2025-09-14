@@ -12,26 +12,56 @@ export default function CartPage() {
 
       {items.length === 0 ? (
         <div className="rounded-lg border p-6 text-center text-muted-foreground">
-          Keranjang kosong. <Link to="/products" className="text-primary underline">Lihat koleksi</Link>
+          Keranjang kosong.{" "}
+          <Link to="/products" className="text-primary underline">
+            Lihat koleksi
+          </Link>
         </div>
       ) : (
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-4">
             {items.map((i) => (
-              <div key={`${i.id}-${i.color}-${i.size}`} className="flex items-center gap-4 rounded-lg border p-4">
-                <img src={i.image} alt={i.name} className="size-24 rounded-md object-cover" />
+              <div
+                key={`${i.id}-${i.color}-${i.size}`}
+                className="flex items-center gap-4 rounded-lg border p-4"
+              >
+                <img
+                  src={i.image}
+                  alt={i.name}
+                  className="size-24 rounded-md object-cover"
+                />
                 <div className="flex-1">
                   <div className="font-medium">{i.name}</div>
-                  <div className="text-sm text-muted-foreground">{i.color} • {i.size}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {i.color} • {i.size}
+                  </div>
                   <div className="mt-2">
                     <label className="text-xs text-muted-foreground">Qty</label>
-                    <input type="number" min={1} value={i.quantity} onChange={(e)=>updateQty({id:i.id,color:i.color,size:i.size}, Math.max(1, Number(e.target.value)))} className="ml-2 w-20 rounded-md border bg-background px-3 py-1 text-sm" />
+                    <input
+                      type="number"
+                      min={1}
+                      value={i.quantity}
+                      onChange={(e) =>
+                        updateQty(
+                          { id: i.id, color: i.color, size: i.size },
+                          Math.max(1, Number(e.target.value)),
+                        )
+                      }
+                      className="ml-2 w-20 rounded-md border bg-background px-3 py-1 text-sm"
+                    />
                   </div>
                 </div>
                 <div className="text-right">
                   <ProductPrice value={i.price * i.quantity} />
                   <div>
-                    <button className="text-xs text-destructive underline" onClick={()=>remove({id:i.id,color:i.color,size:i.size})}>Hapus</button>
+                    <button
+                      className="text-xs text-destructive underline"
+                      onClick={() =>
+                        remove({ id: i.id, color: i.color, size: i.size })
+                      }
+                    >
+                      Hapus
+                    </button>
                   </div>
                 </div>
               </div>
@@ -42,7 +72,9 @@ export default function CartPage() {
               <span className="text-muted-foreground">Subtotal</span>
               <ProductPrice value={subtotal} />
             </div>
-            <p className="text-xs text-muted-foreground">Belum termasuk ongkir. Pajak dihitung saat checkout.</p>
+            <p className="text-xs text-muted-foreground">
+              Belum termasuk ongkir. Pajak dihitung saat checkout.
+            </p>
             <Link to="/checkout">
               <Button className="w-full mt-4">Lanjut ke Checkout</Button>
             </Link>
